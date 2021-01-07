@@ -16,20 +16,15 @@
         <link rel="stylesheet" type="text/css" href="VENDOR/assets/css/forms/switches.css">
     </head>
     <body class="form">
-
-
         <div class="form-container outer">
             <div class="form-form">
                 <div class="form-form-wrap">
                     <div class="form-container">
                         <div class="form-content">
-
                             <h1 class="">SISlog App</h1>
                             <p class="">Sistema Administracion  y Gestion Logistica</p>
-
-                            <form class="text-left">
+                            <form class="text-left" action="LoginController" method="POST">
                                 <div class="form">
-
                                     <div id="username-field" class="field-wrapper input">
                                         <label for="username">USUARIO</label>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -43,43 +38,35 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="toggle-password" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     </div>
                                     <div class="field-wrapper input" >
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <label for="idEmpresa">Id Empresa</label>
-                                                <input id="idEmpresa" name="idEmpresa" type="text" class="form-control" required>
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="Empresa">Empresa</label>
-                                                <input id="Empresa" name="Empresa" type="text" class="form-control" required disabled>
-                                            </div>
-                                        </div>     
+                                        <label for="idEmpresa">EMPRESA</label>
+                                        <select class="form-control"
+                                                id="idEmpresa"
+                                                name="idEmpresa"
+                                                >
+                                            <option selected="0">-- Seleccione --</option>
+                                            
+                                        </select>
                                     </div>
                                     <br>
                                     <div class="d-sm-flex justify-content-between">
                                         <div class="field-wrapper">
-                                            <button type="submit" class="btn btn-primary"  value="">Entrar</button>
+                                            <button type="submit" class="btn btn-primary">Entrar</button>
                                         </div>
                                     </div>
                                     </br>
                                     </br>                        
-
                                 </div>
                             </form>
-
                         </div>                    
                     </div>
                 </div>
             </div>
         </div>
-
-
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="VENDOR/assets/js/libs/jquery-3.1.1.min.js"></script>
         <script src="VENDOR/bootstrap/js/popper.min.js"></script>
         <script src="VENDOR/bootstrap/js/bootstrap.min.js"></script>
         <!-- END GLOBAL MANDATORY SCRIPTS -->
         <script src="VENDOR/assets/js/authentication/form-2.js"></script>
-
-
     </body>
 </html>
