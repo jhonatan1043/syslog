@@ -35,7 +35,6 @@ public class Conexion {
             try {
 
                 cnx = DriverManager.getConnection(url);
-                System.out.println("Conexion exitosa");
 
             } catch (SQLException ex) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
