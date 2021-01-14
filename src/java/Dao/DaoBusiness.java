@@ -11,7 +11,7 @@ import Models.Business;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,17 +24,19 @@ public class DaoBusiness implements IBusiness {
     Conexion cnx = new Conexion();
 
     @Override
-    public List<Business> listBusiness() {
-        List<Business> list = null;
-        Business business = new Business();
+    public ArrayList<Business> listBusiness() {
+        ArrayList<Business> list = new ArrayList<>();
+        Business business;
         try {
 
             PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT cod_empresa, nom_empresa FROM empresa");
 
             try (ResultSet resultSet = prm.executeQuery()) {
                 while (resultSet.next()) {
+                    business = new Business();
                     business.setIdBusiness(resultSet.getInt(1));
                     business.setBusiness(resultSet.getString(2));
+                    list.add(business);
                 }
             }
             cnx.getConexion().close();

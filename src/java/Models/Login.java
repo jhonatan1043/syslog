@@ -16,7 +16,16 @@ public class Login {
     private String tipo;
     private int idEmpresa;
     private String Empresa;
+    private byte[] passEncrypt;
 
+    public byte[] getPassEncrypt() {
+        return passEncrypt;
+    }
+
+    public void setPassEncrypt(byte[] passEncrypt) {
+        this.passEncrypt = passEncrypt;
+    }
+    
     public int getIdEmpresa() {
         return idEmpresa;
     }
@@ -55,5 +64,10 @@ public class Login {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Login{" + "user=" + user + ", pass=" + pass + ", tipo=" + tipo + ", idEmpresa=" + idEmpresa + ", Empresa=" + Empresa + '}';
     }
 }

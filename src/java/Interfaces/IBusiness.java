@@ -6,7 +6,7 @@
 package Interfaces;
 
 import Models.Business;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface IBusiness {
     
-  public List<Business> listBusiness();
+  public ArrayList<Business> listBusiness();
 }

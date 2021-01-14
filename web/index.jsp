@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList;"%>
+<%@page import="Models.Business;"%>
+<%@page import="Dao.DaoBusiness;"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +26,7 @@
                         <div class="form-content">
                             <h1 class="">SISlog App</h1>
                             <p class="">Sistema Administracion  y Gestion Logistica</p>
-                            <form class="text-left" action="LoginController" method="POST">
+                            <form class="text-left" action="Login" method="POST" id="formLogin">
                                 <div class="form">
                                     <div id="username-field" class="field-wrapper input">
                                         <label for="username">USUARIO</label>
@@ -43,8 +46,15 @@
                                                 id="idEmpresa"
                                                 name="idEmpresa"
                                                 >
-                                            <option selected="0">-- Seleccione --</option>
-                                            
+                                            <option selected="0" value="0">-- Seleccione --</option>
+                                            <%
+                                                DaoBusiness daoBusiness = new DaoBusiness();
+                                                ArrayList<Business> listBusiness = daoBusiness.listBusiness();
+                                               for(Business business : listBusiness ){             
+                                             %>
+                                             <option value="<%= business.getIdBusiness() %>">
+                                                 <%= business.getBusiness() %></option>
+                                            <%}; %>
                                         </select>
                                     </div>
                                     <br>
@@ -68,5 +78,7 @@
         <script src="VENDOR/bootstrap/js/bootstrap.min.js"></script>
         <!-- END GLOBAL MANDATORY SCRIPTS -->
         <script src="VENDOR/assets/js/authentication/form-2.js"></script>
+        <<script src="js/login.js"></script>
     </body>
+
 </html>

@@ -23,17 +23,18 @@ public class DaoLogin implements ILogin {
     Conexion cnx = new Conexion();
 
     @Override
-    public Login getUser(String user) {
+    public Login login(String user) {
         Login login = new Login();
         try {
 
-            PreparedStatement prm = cnx.getConexion().prepareStatement("");
+            PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT estado_user, pwd_user "
+                                                                       + "FROM usuarios WHERE cod_user = ?");
             prm.setString(1, user);
             try (ResultSet result = prm.executeQuery()) {
                 while (result.next()) {
                     login.setUser(user);
-                    login.setPass(result.getString(1));
-                    login.setTipo(result.getString(2));
+                    login.setTipo(result.getString(1));
+                    login.setPassEncrypt(result.getBytes(2));
                 }
             }
             cnx.getConexion().close();
@@ -42,26 +43,4 @@ public class DaoLogin implements ILogin {
         }
         return login;
     }
-
-    @Override
-    public void login(Login login) {
-
-        try {
-
-            PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT estado_user "
-                                                                       + "FROM usuarios WHERE cod_user = ?");
-            prm.setString(1, login.getUser());
-            
-            try (ResultSet resultSet = prm.executeQuery()) {
-                while (resultSet.next()) {
-                    login.setTipo(resultSet.getString(1));
-                }
-            }
-            cnx.getConexion().close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DaoLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
 }

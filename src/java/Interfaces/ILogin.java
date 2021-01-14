@@ -13,8 +13,6 @@ import Models.Login;
  */
 public interface ILogin {
     
-    public Login getUser(String user);
-    
-    public void login(Login login);
-    
+    public Login login(String user);
+  
 }
