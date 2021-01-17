@@ -52,12 +52,15 @@ public class LoginController extends HttpServlet {
         login = daoLogin.login(login.getUser());
         
         try {
-            System.out.println(encryptDescryptString.DescryptString("0xB0E24FEB69AAF8DDF53B2A81DF8BC875".getBytes()));
+            
             System.out.println(Arrays.toString(login.getPassEncrypt()));
+            byte[] prueba = encryptDescryptString.encryptString(login.getPass());
+            System.out.println(Arrays.toString(prueba));
             
             if(encryptDescryptString.DescryptString(login.getPassEncrypt()).equals(login.getPass())){
                 resul = true;
             }
+            
         } catch (IllegalBlockSizeException | BadPaddingException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

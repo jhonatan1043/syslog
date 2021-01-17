@@ -23,7 +23,7 @@ import javax.crypto.SecretKey;
  */
 public class EncryptDescryptString {
 
-    private static final String UNICODE_FORMAT = "utf-8";
+    private static final String UNICODE_FORMAT = "UTF-8";
     private final SecretKey secretKey;
     private Cipher cipher;
 
@@ -52,13 +52,12 @@ public class EncryptDescryptString {
 //    }
 
     public EncryptDescryptString() {
-        secretKey = generateKey("AES");
+         secretKey = generateKey("AES");
         try {
             cipher = Cipher.getInstance("AES");
         } catch (NoSuchAlgorithmException | NoSuchPaddingException ex) {
             Logger.getLogger(EncryptDescryptString.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public static SecretKey generateKey(String encryptionType) {
@@ -79,7 +78,6 @@ public class EncryptDescryptString {
         byte[] textEncrypted = null;
 
         try {
-
             byte[] text = dataToEcrypt.getBytes(UNICODE_FORMAT);
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             textEncrypted = cipher.doFinal(text);
