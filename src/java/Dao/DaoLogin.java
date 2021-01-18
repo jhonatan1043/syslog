@@ -28,14 +28,19 @@ public class DaoLogin implements ILogin {
         try {
 
             PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT estado_user "
-                                                                       + "FROM usuarios WHERE cod_user = ? AND pwd_user = ?");
+                                                                       + "FROM usuarios WHERE cod_user = ? "
+                                                                       + " AND pwd_user = ?");
             prm.setString(1, login.getUser());
             prm.setString(2, login.getPass());
+            
             try (ResultSet result = prm.executeQuery()) {
                 while (result.next()) {
                     login.setTipo(result.getString(1));
                 }
             }
+            
+            System.out.println(login);
+            
             cnx.getConexion().close();
         } catch (SQLException ex) {
             Logger.getLogger(DaoLogin.class.getName()).log(Level.SEVERE, null, ex);

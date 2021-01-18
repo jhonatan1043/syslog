@@ -1,6 +1,7 @@
+<%@page import="Models.Empresa"%>
+<%@page import="Dao.DaoEmpresa"%>
 <%@page import="java.util.ArrayList;"%>
-<%@page import="Models.Business;"%>
-<%@page import="Dao.DaoBusiness;"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,12 +49,12 @@
                                                 >
                                             <option selected="0" value="0">-- Seleccione --</option>
                                             <%
-                                                DaoBusiness daoBusiness = new DaoBusiness();
-                                                ArrayList<Business> listBusiness = daoBusiness.listBusiness();
-                                               for(Business business : listBusiness ){             
+                                                DaoEmpresa daoEmpresa = new DaoEmpresa();
+                                                ArrayList<Empresa> listBusiness = daoEmpresa.listBusiness();
+                                               for(Empresa empresa : listBusiness ){             
                                              %>
-                                             <option value="<%= business.getIdBusiness() %>">
-                                                 <%= business.getBusiness() %></option>
+                                             <option value="<%= empresa.getIdBusiness() %>">
+                                                 <%= empresa.getBusiness() %></option>
                                             <%}; %>
                                         </select>
                                     </div>

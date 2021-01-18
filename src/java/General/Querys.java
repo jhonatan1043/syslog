@@ -33,5 +33,7 @@ public class Querys {
     public static String QUERY_GET_CLASIFICACION = "SELECT nom_clasificacion AS Descripción"
                                                   + " FROM clasificacion WHERE cod_clasificacion = ?";
     //|REQUISICIOM
-
+    public static String QUERY_SAVE_REQUISICION = "EXEC spRequisionesGuardar(?,?,?,?,?,?,?,?,?,?,?)";
+    
+     public static String QUERY_UPDATE_REQUISICION = "EXEC spRequisionesGuardar(?,?,?,?,?,?,?,?,?,?,?,?)";
 }

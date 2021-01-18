@@ -45,15 +45,14 @@ public class LoginController extends HttpServlet {
         
         request.setAttribute("user", login);
 
-        if ("".equals(login.getTipo())) {
+        if (login.getTipo() != null) {
             dispatcher = request.getRequestDispatcher("dashboard.jsp");
-            System.out.println("access");
+             dispatcher.forward(request, response);
+            System.out.println("access " + login.getTipo());
         } else {
-            dispatcher = request.getRequestDispatcher("dashboard.jsp");
-            System.out.println("error");
+            System.out.println("error " + login.getTipo());
         }
-        dispatcher.forward(request, response);
-
+       
     }
 
 }
