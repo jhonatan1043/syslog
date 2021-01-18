@@ -9,7 +9,7 @@ package Models;
  *
  * @author Programador 1
  */
-public class Business {
+public class Empresa {
     
        private int idBusiness;
     private String business;

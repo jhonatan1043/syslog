@@ -5,14 +5,17 @@
  */
 package Interfaces;
 
-import Models.Business;
+import Models.ClasificacionRequisicion;
 import java.util.ArrayList;
 
 /**
  *
  * @author Programador 1
  */
-public interface IBusiness {
-    
-  public ArrayList<Business> listBusiness();
+public interface IClasificacionRequisicion {
+
+    public ArrayList<ClasificacionRequisicion> listClasificacionRequisicion();
+
+    public ClasificacionRequisicion getClasificacionRequisicion(String codigoClasificacionRequisicion);
+
 }

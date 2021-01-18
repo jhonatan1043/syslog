@@ -6,34 +6,34 @@
 package Dao;
 
 import General.Conexion;
-import Interfaces.IBusiness;
-import Models.Business;
+import Models.Empresa;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Interfaces.IEmpresa;
 
 /**
  *
  * @author Programador 1
  */
-public class DaoBusiness implements IBusiness {
+public class DaoEmpresa implements IEmpresa {
 
     Conexion cnx = new Conexion();
 
     @Override
-    public ArrayList<Business> listBusiness() {
-        ArrayList<Business> list = new ArrayList<>();
-        Business business;
+    public ArrayList<Empresa> listBusiness() {
+        ArrayList<Empresa> list = new ArrayList<>();
+        Empresa business;
         try {
 
             PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT cod_empresa, nom_empresa FROM empresa");
 
             try (ResultSet resultSet = prm.executeQuery()) {
                 while (resultSet.next()) {
-                    business = new Business();
+                    business = new Empresa();
                     business.setIdBusiness(resultSet.getInt(1));
                     business.setBusiness(resultSet.getString(2));
                     list.add(business);
