@@ -7,7 +7,6 @@ package Interfaces;
 
 import Models.Requisicion;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,11 +16,11 @@ public interface IRequisicion {
 
     public boolean saveRequisicion(Requisicion requisicion);
 
-    public boolean saveRequisicionDetalle(DefaultTableModel modelo);
+    public boolean saveRequisicionDetalle(Requisicion requisicion);
 
     public boolean updateRequisicion(Requisicion requisicion);
 
-    public boolean updateRequisicionDetalle(DefaultTableModel modelo);
+    public boolean updateRequisicionDetalle(Requisicion requisicion);
 
     public ArrayList<Requisicion> listRequisicion();
 

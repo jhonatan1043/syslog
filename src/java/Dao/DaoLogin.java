@@ -23,18 +23,17 @@ public class DaoLogin implements ILogin {
     Conexion cnx = new Conexion();
 
     @Override
-    public Login login(String user) {
-        Login login = new Login();
+    public Login login(Login login ) {
+
         try {
 
-            PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT estado_user, pwd_user "
-                                                                       + "FROM usuarios WHERE cod_user = ?");
-            prm.setString(1, user);
+            PreparedStatement prm = cnx.getConexion().prepareStatement("SELECT estado_user "
+                                                                       + "FROM usuarios WHERE cod_user = ? AND pwd_user = ?");
+            prm.setString(1, login.getUser());
+            prm.setString(2, login.getPass());
             try (ResultSet result = prm.executeQuery()) {
                 while (result.next()) {
-                    login.setUser(user);
                     login.setTipo(result.getString(1));
-                    login.setPassEncrypt(result.getBytes(2));
                 }
             }
             cnx.getConexion().close();

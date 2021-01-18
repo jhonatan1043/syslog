@@ -5,10 +5,14 @@
  */
 package Dao;
 
+import General.Conexion;
 import Interfaces.IRequisicion;
 import Models.Requisicion;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,14 +20,43 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DaoRequisicion implements IRequisicion {
 
+    Conexion cnx = new Conexion();
+
     @Override
     public boolean saveRequisicion(Requisicion requisicion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean result = false;
+
+        try {
+            try (PreparedStatement psmt = cnx.getConexion().prepareStatement("")) {
+                psmt.setInt(1, requisicion.getEmp_requisicion());
+                psmt.setString(2, requisicion.getCc_requisicion());
+                psmt.setString(3, requisicion.getNum_requisicion());
+                psmt.setDate(4, requisicion.getFecha_requisicion());
+                psmt.setString(5, requisicion.getTipo_requisicion());
+                psmt.setString(6, requisicion.getEstado_requisicion());
+                psmt.setString(7, requisicion.getObs_requisicion());
+                psmt.setDate(8, requisicion.getFecha_ap());
+                psmt.setString(9, requisicion.getUser_ap());
+                psmt.setString(10, requisicion.getClase_requisicion());
+                psmt.setString(11, requisicion.getUser_rq());
+                psmt.setString(12, requisicion.getInterno_requisicion());
+                psmt.execute();
+
+                cnx.getConexion().close();
+                psmt.close();
+                result = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoRequisicion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
-    public boolean saveRequisicionDetalle(DefaultTableModel modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean saveRequisicionDetalle(Requisicion requisicion) {
+        return false;
+        
     }
 
     @Override
@@ -32,7 +65,7 @@ public class DaoRequisicion implements IRequisicion {
     }
 
     @Override
-    public boolean updateRequisicionDetalle(DefaultTableModel modelo) {
+    public boolean updateRequisicionDetalle(Requisicion requisicion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -55,5 +88,5 @@ public class DaoRequisicion implements IRequisicion {
     public boolean deleteRequisicion(String cc_requisicion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

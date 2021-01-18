@@ -6,14 +6,8 @@
 package Controllers;
 
 import Dao.DaoLogin;
-import General.EncryptDescryptString;
 import Models.Login;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,32 +36,16 @@ public class LoginController extends HttpServlet {
 
         Login login = new Login();
         DaoLogin daoLogin = new DaoLogin();
-        EncryptDescryptString encryptDescryptString =  new EncryptDescryptString();
-        boolean resul = false;
         
         login.setUser(request.getParameter("username"));
         login.setPass(request.getParameter("password"));
         login.setIdEmpresa(Integer.parseInt(request.getParameter("empresa")));
 
-        login = daoLogin.login(login.getUser());
-        
-        try {
-            
-            System.out.println(Arrays.toString(login.getPassEncrypt()));
-            byte[] prueba = encryptDescryptString.encryptString(login.getPass());
-            System.out.println(Arrays.toString(prueba));
-            
-            if(encryptDescryptString.DescryptString(login.getPassEncrypt()).equals(login.getPass())){
-                resul = true;
-            }
-            
-        } catch (IllegalBlockSizeException | BadPaddingException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        login = daoLogin.login(login);
         
         request.setAttribute("user", login);
 
-        if (resul) {
+        if ("".equals(login.getTipo())) {
             dispatcher = request.getRequestDispatcher("dashboard.jsp");
             System.out.println("access");
         } else {

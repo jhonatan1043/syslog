@@ -9,7 +9,6 @@ import General.Conexion;
 import General.Querys;
 import Interfaces.ICentroCosto;
 import Models.CentroCosto;
-import Models.ClasificacionRequisicion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
