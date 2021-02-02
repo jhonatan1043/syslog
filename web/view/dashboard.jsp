@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>SISlog Panel de Administracion </title>
-    <link rel="icon" type="image/x-icon" href="VENDOR/assets/img/favicon.png"/>
-    <link href="VENDOR/assets/css/loader.css" rel="stylesheet" type="text/css" />
-    <script src="VENDOR/assets/js/loader.js"></script>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="VENDOR/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="VENDOR/assets/css/plugins.css" rel="stylesheet" type="text/css" />
-    <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="VENDOR/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="VENDOR/assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-
-</head>
-<body class="alt-menu sidebar-noneoverflow">
+<div class="alt-menu sidebar-noneoverflow">
     <!-- BEGIN LOADER -->
     <div id="load_screen"> <div class="loader"> <div class="loader-content">
-        <div class="spinner-grow align-self-center"></div>
-    </div></div></div>
+                <div class="spinner-grow align-self-center"></div>
+            </div></div></div>
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
@@ -33,8 +11,8 @@
             <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
 
             <ul class="navbar-item flex-row ml-auto">
-                             
-               
+
+
 
                 <li class="nav-item dropdown notification-dropdown">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,10 +62,10 @@
                         <div class="user-profile-section">                            
                             <div class="media mx-auto">
                                 <img src="assets/img/logobeta.png" class="img-fluid mr-2" alt="avatar">
-                                <div class="media-body">
-                                    <h5>sistemas</h5>
-                                    <p>Administrador</p>
-                                </div>
+                                    <div class="media-body">
+                                        <h5>sistemas</h5>
+                                        <p>Administrador</p>
+                                    </div>
                             </div>
                         </div>
                         <div class="dropdown-item">
@@ -116,7 +94,7 @@
 
         <!--  BEGIN SIDEBAR  -->
         <div class="sidebar-wrapper sidebar-theme">
-            
+
             <nav id="sidebar">
 
                 <ul class="navbar-nav theme-brand flex-row  text-center">
@@ -141,7 +119,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        
+
                     </li>                  
 
                     <li class="menu">
@@ -218,10 +196,10 @@
                             <li>
                                 <a href="element_breadcrumbs.html"> Reimpresion Orden Original </a>
                             </li>                         
-                           
+
                         </ul>
                     </li>         
-                    
+
                     <li class="menu">
                         <a href="#datatables" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -248,7 +226,7 @@
                             <li>
                                 <a href="table_dt_multiple_tables.html"> Moviemiento Almacen </a>
                             </li>
-                            
+
                         </ul>
                     </li>
 
@@ -299,7 +277,7 @@
                             <li>
                                 <a href="form_wizard.html"> Rutas </a>
                             </li>
-                            
+
                         </ul>
                     </li>      
 
@@ -332,7 +310,7 @@
                             <li>
                                 <a href="pages_coming_soon.html"> Impresion Centro de Costos </a>
                             </li>
-                            
+
                         </ul>
                     </li>                   
                     <li class="menu">
@@ -385,21 +363,21 @@
                             </li>
                         </ul>
                     </li>             
-                    
+
                 </ul>
-                
+
             </nav>
 
         </div>
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
                 <div class="row layout-top-spacing">
 
-                    
+
 
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
                         <div class="widget widget-account-invoice-two">
@@ -416,7 +394,7 @@
                                         <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
                                             <a href="javascript:void(0);">Buscar Requisicion</a>
                                         </div>
-                                            
+
                                     </div>
                                 </div>
                             </div>
@@ -437,7 +415,7 @@
                                         <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
                                             <a href="javascript:void(0);">Buscar Orden</a>
                                         </div>
-                                            
+
                                     </div>
                                 </div>
                             </div>
@@ -460,23 +438,23 @@
                                         </div>                                  
                                     </div>
                                     <div id="slideupModal" class="modal animated slideInUp custo-slideInUp" role="dialog">
-                                            <div class="modal-dialog">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">ACCESO DENEGADO</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                      <p class="modal-text">No tiene Suficientes Priviligios de Acceso</p>
-                                                    </div>
-                                                    <div class="modal-footer md-button">
-                                                        <button class="btn btn-primary" data-dismiss="modal"><i class="flaticon-cancel-12"></i> CLOSE</button>                                                        
-                                                    </div>
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">ACCESO DENEGADO</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="modal-text">No tiene Suficientes Priviligios de Acceso</p>
+                                                </div>
+                                                <div class="modal-footer md-button">
+                                                    <button class="btn btn-primary" data-dismiss="modal"><i class="flaticon-cancel-12"></i> CLOSE</button>                                                        
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
 
                                     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -485,7 +463,7 @@
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="mySmallModalLabel">ACCESO DENEGADO</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
@@ -516,7 +494,7 @@
                                         <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
                                             <a href="javascript:void(0);">Buscar Proveedor</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -537,38 +515,17 @@
                                         <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
                                             <a href="javascript:void(0);">Buscar Existencias</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>                   
-                    
+
+                </div>
             </div>
+            <!--  END CONTENT AREA  -->
+
         </div>
-        <!--  END CONTENT AREA  -->
 
     </div>
-    <!-- END MAIN CONTAINER -->
-
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="VENDOR/assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="VENDOR/bootstrap/js/popper.min.js"></script>
-    <script src="VENDOR/bootstrap/js/bootstrap.min.js"></script>
-    <script src="VENDOR/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="VENDOR/assets/js/app.js"></script>
-    <script>
-        $(document).ready(function() {
-            App.init();
-        });
-    </script>
-    <script src="VENDOR/assets/js/custom.js"></script>
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
-
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="VENDOR/plugins/apex/apexcharts.min.js"></script>
-    <script src="VENDOR/assets/js/dashboard/dash_1.js"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
-</body>
-</html>

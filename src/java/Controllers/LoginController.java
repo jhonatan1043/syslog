@@ -7,8 +7,10 @@ package Controllers;
 
 import Dao.DaoLogin;
 import Models.Login;
+import com.google.gson.Gson;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,9 +33,9 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        RequestDispatcher dispatcher;
-
+        Map <String, Object> map = new HashMap<>();
+        boolean isValid = false;
+        
         Login login = new Login();
         DaoLogin daoLogin = new DaoLogin();
         
@@ -42,17 +44,22 @@ public class LoginController extends HttpServlet {
         login.setIdEmpresa(Integer.parseInt(request.getParameter("empresa")));
 
         login = daoLogin.login(login);
-        
-        request.setAttribute("user", login);
 
         if (login.getTipo() != null) {
-            dispatcher = request.getRequestDispatcher("dashboard.jsp");
-             dispatcher.forward(request, response);
-            System.out.println("access " + login.getTipo());
-        } else {
-            System.out.println("error " + login.getTipo());
-        }
-       
+           isValid = true;
+           map.put("user", login);
+        } 
+        
+        map.put("isValid", isValid);
+        
+        white(response,map);
     }
+
+    private void white(HttpServletResponse response, Map<String, Object> map) throws IOException {
+      response.setContentType("application/json");
+      response.setCharacterEncoding("UTF-8");
+      response.getWriter().write(new Gson().toJson(map));
+    }
+
 
 }
