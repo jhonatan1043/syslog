@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,6 +35,8 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Map <String, Object> map = new HashMap<>();
+        HttpSession sesion = request.getSession();
+        
         boolean isValid = false;
         
         Login login = new Login();
@@ -48,6 +51,7 @@ public class LoginController extends HttpServlet {
         if (login.getTipo() != null) {
            isValid = true;
            map.put("user", login);
+           sesion.setAttribute("idEmpresa", login.getEmpresa());
         } 
         
         map.put("isValid", isValid);

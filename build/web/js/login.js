@@ -20,9 +20,9 @@ $(document).ready(function () {
                        empresa: empresa},
                        dataType: "json",
                 success: function (data) {
-                    console.log(data,"por aca")
-                    if (data.isValid) {
-                        $("#app").load("./view/dashboard.jsp");
+                    if (data.isValid) {        
+                        sessionStorage.setItem('login', data.user);
+                        $("#app").load("./view/dashboard.jsp");         
                     } else {
                         alert("Datos no validos");
                     }

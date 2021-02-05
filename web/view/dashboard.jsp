@@ -1,11 +1,10 @@
 <div class="alt-menu sidebar-noneoverflow">
-    <!-- BEGIN LOADER -->
-    <div id="load_screen"> <div class="loader"> <div class="loader-content">
+
+    <!-- <div id="load_screen"> <div class="loader"> <div class="loader-content">
                 <div class="spinner-grow align-self-center"></div>
             </div></div></div>
-    <!--  END LOADER -->
-
-    <!--  BEGIN NAVBAR  -->
+     BEGIN NAVBAR  -->
+    
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm expand-header">
             <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
@@ -61,7 +60,7 @@
                     <div class="dropdown-menu position-absolute e-animated e-fadeInUp" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">                            
                             <div class="media mx-auto">
-                                <img src="assets/img/logobeta.png" class="img-fluid mr-2" alt="avatar">
+                                <img src="VENDOR/assets/img/favicon.png" class="img-fluid mr-2" alt="avatar">
                                     <div class="media-body">
                                         <h5>sistemas</h5>
                                         <p>Administrador</p>
@@ -100,7 +99,7 @@
                 <ul class="navbar-nav theme-brand flex-row  text-center">
                     <li class="nav-item theme-logo">
                         <a href="dashboard.html">
-                            <img src="assets/img/logobeta.png" class="navbar-logo" alt="logo">
+                            <img src="VENDOR/assets/img/favicon.png" class="navbar-logo" alt="logo">
                         </a>
                     </li>
                     <li class="nav-item theme-text">
@@ -188,7 +187,7 @@
                                 <a href="element_alerts.html"> Proveedores </a>
                             </li>
                             <li>
-                                <a href="app_requisicion.html"> Requisiciones </a>
+                                <a href="#" id="formRequisicion"> Requisiciones </a>
                             </li>
                             <li>
                                 <a href="element_badges.html"> Ordenes de Compra</a>
@@ -368,164 +367,22 @@
 
             </nav>
 
-        </div>
+        </div>-
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            <div class="layout-px-spacing">
-
-                <div class="row layout-top-spacing">
-
-
-
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-account-invoice-two">
-                            <div class="widget-content">
-                                <div class="account-box">
-                                    <div class="info">
-                                        <h5 class="">Requisiciones</h5>                                        
-                                    </div>
-                                    <div class="acc-action">
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a>
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                        </div>
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);">Buscar Requisicion</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-account-invoice-two">
-                            <div class="widget-content">
-                                <div class="account-box">
-                                    <div class="info">
-                                        <h5 class="">Ordenes de Compra</h5>                                        
-                                    </div>
-                                    <div class="acc-action">
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a>
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                        </div>
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);">Buscar Orden</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-account-invoice-two">
-                            <div class="widget-content">
-                                <div class="account-box">
-                                    <div class="info">
-                                        <h5 class="">Materiales</h5>                                        
-                                    </div>
-                                    <div class="acc-action">
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">                                            
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a>
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                        </div>
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);">Buscar Material</a>                                            
-                                        </div>                                  
-                                    </div>
-                                    <div id="slideupModal" class="modal animated slideInUp custo-slideInUp" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">ACCESO DENEGADO</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p class="modal-text">No tiene Suficientes Priviligios de Acceso</p>
-                                                </div>
-                                                <div class="modal-footer md-button">
-                                                    <button class="btn btn-primary" data-dismiss="modal"><i class="flaticon-cancel-12"></i> CLOSE</button>                                                        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-sm" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="mySmallModalLabel">ACCESO DENEGADO</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p class="modal-text">No tiene Suficientes Priviligios de Acceso</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button class="btn btn-primary" data-dismiss="modal"><i class="flaticon-cancel-12"></i> CLOSE</button>                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-account-invoice-two">
-                            <div class="widget-content">
-                                <div class="account-box">
-                                    <div class="info">
-                                        <h5 class="">Proveedores</h5>                                        
-                                    </div>
-                                    <div class="acc-action">
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a>
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                        </div>
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);">Buscar Proveedor</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-account-invoice-two">
-                            <div class="widget-content">
-                                <div class="account-box">
-                                    <div class="info">
-                                        <h5 class="">Existencias</h5>                                        
-                                    </div>
-                                    <div class="acc-action">
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a>
-                                            <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                        </div>
-                                        <div class="" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                            <a href="javascript:void(0);">Buscar Existencias</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                   
-
-                </div>
-            </div>
-            <!--  END CONTENT AREA  -->
-
+                    <div id="contenedor"></div>
         </div>
-
     </div>
+    <script src="VENDOR/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="VENDOR/assets/js/loader.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script src="VENDOR/assets/js/custom.js"></script>
+    <script src="VENDOR/plugins/apex/apexcharts.min.js"></script>
+    <script src="VENDOR/assets/js/dashboard/dash_1.js"></script>
+    <script src="./js/dashboard.js"></script>

@@ -19,6 +19,7 @@
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
         <link href="VENDOR/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
         <link href="VENDOR/assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
+        <link href="VENDOR/assets/css/icon/all.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
 
@@ -28,9 +29,9 @@
         <script src="VENDOR/assets/js/libs/jquery-3.1.1.min.js"></script>
         <script src="VENDOR/bootstrap/js/popper.min.js"></script>
         <script src="VENDOR/bootstrap/js/bootstrap.min.js"></script>
+        <script src="VENDOR/assets/js/app.js"></script>
         <script src="VENDOR/assets/js/loader.js"></script>
         <script src="VENDOR/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script src="VENDOR/assets/js/app.js"></script>
         <script>
             $(document).ready(function () {
                 App.init();
@@ -38,7 +39,6 @@
         </script>
         <script src="VENDOR/assets/js/custom.js"></script>
         <script src="VENDOR/plugins/apex/apexcharts.min.js"></script>
-        <script src="VENDOR/assets/js/dashboard/dash_1.js"></script>
         <script src="js/app.js"></script>
     </body>
 
