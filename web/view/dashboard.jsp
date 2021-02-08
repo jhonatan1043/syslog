@@ -384,5 +384,6 @@
     </script>
     <script src="VENDOR/assets/js/custom.js"></script>
     <script src="VENDOR/plugins/apex/apexcharts.min.js"></script>
+     <script src="VENDOR/plugins/sweetalerts/sweetalert2.min.js"></script>
     <script src="VENDOR/assets/js/dashboard/dash_1.js"></script>
     <script src="./js/dashboard.js"></script>

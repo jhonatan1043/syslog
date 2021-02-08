@@ -17,11 +17,28 @@ $(document).ready(() => {
     });
 
     $("#salvarRequisicion").click(() => {
-        deshabilitarControles();
-        desBotonesRequisicion();
-        desBotonesRequisicionDetalle();
-        $("#cancelarRequisicionDetalle").removeAttr("disabled");
-        $("#salvarRequisicionDetalle").removeAttr("disabled");
+        Swal.fire({
+            title: "SisLog",
+            text: "¿Desea Guardar?",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: "Sí",
+            cancelButtonText: "No",
+        })
+                .then(() => {
+                    $.post("/requisicion",
+                            cargarRequisicion(),
+                            (data) => {
+                        if (data.isValid) {
+                            deshabilitarControles();
+                            desBotonesRequisicion();
+                            desBotonesRequisicionDetalle();
+                            $("#cancelarRequisicionDetalle").removeAttr("disabled");
+                            $("#salvarRequisicionDetalle").removeAttr("disabled");
+                        }
+                    }
+                    );
+                });
     });
 //--------------------------------------------------------------eventos de los botones requisiciones detalle -------------
     $("#cancelarRequisicionDetalle").click(() => {
@@ -44,7 +61,6 @@ $(document).ready(() => {
     function deshabilitarControles() {
         $("#centroC").attr("disabled", "false");
         $("#idclasificacion").attr("disabled", "false");
-        $("#idclasificacion").attr("disabled", "false");
         $("#numRequicion").attr("disabled", "false");
         $("#fechaRequicion").attr("disabled", "false");
         $("#idTipo").attr("disabled", "false");
@@ -53,7 +69,6 @@ $(document).ready(() => {
 
     function habilitarControles() {
         $("#centroC").removeAttr("disabled");
-        $("#idclasificacion").removeAttr("disabled");
         $("#idclasificacion").removeAttr("disabled");
         $("#numRequicion").removeAttr("disabled");
         $("#fechaRequicion").removeAttr("disabled");
@@ -72,6 +87,18 @@ $(document).ready(() => {
         $("#editarRequisicionDetalle").attr("disabled", "false");
         $("#salvarRequisicionDetalle").attr("disabled", "false");
         $("#cancelarRequisicionDetalle").attr("disabled", "false");
+    }
+
+    function cargarRequisicion() {
+        return {idEmpresa: 0,
+            centroCosto: $("#centroC").val(),
+            clasificacion: $("#idclasificacion").val(),
+            fechaRequicion: $("#fechaRequicion").val(),
+            tipo: $("#idTipo").val(),
+            observacion: $("#observacion").val(),
+            idUser: "user"
+        };
+
     }
 
 });
