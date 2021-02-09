@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,8 +27,10 @@ public class DaoRequisicion implements IRequisicion {
     Conexion cnx = new Conexion();
 
     @Override
-    public boolean saveRequisicion(Requisicion requisicion) {
+    public Map<String, Object> saveRequisicion(Requisicion requisicion) {
         boolean result = false;
+        Map<String, Object> mapRes = new HashMap<>();
+        String message;
 
         try {
             try (PreparedStatement psmt = cnx.getConexion().prepareStatement(Querys.QUERY_SAVE_REQUISICION)) {
@@ -34,13 +38,9 @@ public class DaoRequisicion implements IRequisicion {
                 psmt.setString(2, requisicion.getCc_requisicion());
                 psmt.setDate(3, requisicion.getFecha_requisicion());
                 psmt.setString(4, requisicion.getTipo_requisicion());
-                psmt.setString(5, requisicion.getEstado_requisicion());
-                psmt.setString(6, requisicion.getObs_requisicion());
-                psmt.setDate(7, requisicion.getFecha_ap());
-                psmt.setString(8, requisicion.getUser_ap());
-                psmt.setString(9, requisicion.getClase_requisicion());
-                psmt.setString(10, requisicion.getUser_rq());
-                psmt.setString(11, requisicion.getInterno_requisicion());
+                psmt.setString(5, requisicion.getObs_requisicion());
+                psmt.setString(6, requisicion.getClase_requisicion());
+                psmt.setString(7, requisicion.getUser_rq());
                 try (ResultSet resultSet = psmt.executeQuery()) {
                     while (resultSet.next()) {
                         requisicion.setNum_requisicion(resultSet.getString(1));
@@ -50,12 +50,18 @@ public class DaoRequisicion implements IRequisicion {
                 }
                 psmt.close();
                 result = true;
-            }
+                message = "Registrado con Exito, codigo: " + requisicion.getNum_requisicion();
 
+            }
         } catch (SQLException ex) {
             Logger.getLogger(DaoRequisicion.class.getName()).log(Level.SEVERE, null, ex);
+            message = ex.getMessage();
         }
-        return result;
+
+        mapRes.put("isValid", result);
+        mapRes.put("message", message);
+
+        return mapRes;
     }
 
     @Override
@@ -83,7 +89,7 @@ public class DaoRequisicion implements IRequisicion {
                 psmt.setString(11, requisicion.getInterno_requisicion());
                 psmt.setString(12, requisicion.getNum_requisicion());
                 psmt.execute();
-                
+
                 cnx.getConexion().close();
                 psmt.close();
                 result = true;

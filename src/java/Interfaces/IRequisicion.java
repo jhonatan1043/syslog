@@ -7,6 +7,7 @@ package Interfaces;
 
 import Models.Requisicion;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public interface IRequisicion {
 
-    public boolean saveRequisicion(Requisicion requisicion);
+    public Map<String, Object> saveRequisicion(Requisicion requisicion);
 
     public boolean saveRequisicionDetalle(Requisicion requisicion);
 

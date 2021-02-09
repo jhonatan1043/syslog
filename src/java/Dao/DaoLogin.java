@@ -39,8 +39,6 @@ public class DaoLogin implements ILogin {
                 }
             }
             
-            System.out.println(login);
-            
             cnx.getConexion().close();
         } catch (SQLException ex) {
             Logger.getLogger(DaoLogin.class.getName()).log(Level.SEVERE, null, ex);

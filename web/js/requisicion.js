@@ -1,3 +1,5 @@
+/* global Swal */
+
 $(document).ready(() => {
 
     init();
@@ -25,19 +27,22 @@ $(document).ready(() => {
             confirmButtonText: "Sí",
             cancelButtonText: "No",
         })
-                .then(() => {
-                    $.post("/requisicion",
-                            cargarRequisicion(),
-                            (data) => {
-                        if (data.isValid) {
-                            deshabilitarControles();
-                            desBotonesRequisicion();
-                            desBotonesRequisicionDetalle();
-                            $("#cancelarRequisicionDetalle").removeAttr("disabled");
-                            $("#salvarRequisicionDetalle").removeAttr("disabled");
+                .then((result) => {
+                    if (result.value) {
+                        $.post("Requisicion",
+                                cargarRequisicion(),
+                                (data) => {
+                            console.log(data)
+                            if (data.isValid) {
+                                deshabilitarControles();
+                                desBotonesRequisicion();
+                                desBotonesRequisicionDetalle();
+                                $("#cancelarRequisicionDetalle").removeAttr("disabled");
+                                $("#salvarRequisicionDetalle").removeAttr("disabled");
+                            }
                         }
+                        );
                     }
-                    );
                 });
     });
 //--------------------------------------------------------------eventos de los botones requisiciones detalle -------------
@@ -70,7 +75,6 @@ $(document).ready(() => {
     function habilitarControles() {
         $("#centroC").removeAttr("disabled");
         $("#idclasificacion").removeAttr("disabled");
-        $("#numRequicion").removeAttr("disabled");
         $("#fechaRequicion").removeAttr("disabled");
         $("#idTipo").removeAttr("disabled");
         $("#observacion").removeAttr("disabled");
@@ -90,13 +94,15 @@ $(document).ready(() => {
     }
 
     function cargarRequisicion() {
-        return {idEmpresa: 0,
+      let json = JSON.parse(localStorage.getItem("login"));
+      
+        return {idEmpresa: json.idEmpresa,
             centroCosto: $("#centroC").val(),
             clasificacion: $("#idclasificacion").val(),
             fechaRequicion: $("#fechaRequicion").val(),
-            tipo: $("#idTipo").val(),
+            tipo: $("#idTipo").val() === 1 ? "O" : "U",
             observacion: $("#observacion").val(),
-            idUser: "user"
+            user: json.user
         };
 
     }

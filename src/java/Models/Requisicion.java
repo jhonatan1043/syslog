@@ -131,5 +131,10 @@ public class Requisicion {
     public void setInterno_requisicion(String interno_requisicion) {
         this.interno_requisicion = interno_requisicion;
     }
+    
+       @Override
+    public String toString() {
+        return "Requisicion{" + "emp_requisicion=" + emp_requisicion + ", cc_requisicion=" + cc_requisicion + ", num_requisicion=" + num_requisicion + ", fecha_requisicion=" + fecha_requisicion + ", tipo_requisicion=" + tipo_requisicion + ", estado_requisicion=" + estado_requisicion + ", obs_requisicion=" + obs_requisicion + ", fecha_ap=" + fecha_ap + ", user_ap=" + user_ap + ", clase_requisicion=" + clase_requisicion + ", user_rq=" + user_rq + ", interno_requisicion=" + interno_requisicion + ", modelo=" + modelo + '}';
+    }
 
 }
