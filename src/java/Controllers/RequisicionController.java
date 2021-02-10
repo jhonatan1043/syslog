@@ -37,6 +37,7 @@ public class RequisicionController extends HttpServlet {
         requisicion.setFecha_requisicion(Date.valueOf(request.getParameter("fechaRequicion")));
         requisicion.setTipo_requisicion(request.getParameter("tipo"));
         requisicion.setObs_requisicion(request.getParameter("observacion"));
+        requisicion.setInterno_requisicion(request.getParameter("numInterno"));
         requisicion.setUser_rq(request.getParameter("user"));
         
         System.out.println(requisicion.toString());

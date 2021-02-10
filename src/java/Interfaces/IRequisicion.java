@@ -19,7 +19,7 @@ public interface IRequisicion {
 
     public boolean saveRequisicionDetalle(Requisicion requisicion);
 
-    public boolean updateRequisicion(Requisicion requisicion);
+    public Map<String, Object>  updateRequisicion(Requisicion requisicion);
 
     public boolean updateRequisicionDetalle(Requisicion requisicion);
 
