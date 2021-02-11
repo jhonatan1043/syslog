@@ -58,10 +58,50 @@ $(document).ready(() => {
                 });
     });
 
+    $("#salvarRequisicionDetalle").click(() => {
+        let json = JSON.parse(localStorage.getItem("login"));
+        Swal.fire({
+            title: "SisLog",
+            text: "¿Desea Guardar este detalle?",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: "Sí",
+            cancelButtonText: "No",
+        }).then((result) => {
+            if (result.value) {
+                $.post("Requisicion",
+                        {idEmpresa: json.idEmpresa,
+                            centroCostro: $("#centroC").val(),
+                            numRequisicion: $("#numRequicion").val(),
+                            tipoSave : 2,
+                            jsonData: obtenerJson()},
+                        (data) => {
+                            
+                    if (data.isValid) {
 
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: data.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                        deshabilitarControles();
+                        desBotonesRequisicion();
+                        desBotonesRequisicionDetalle();
+                        $("#editarRequisicion").removeAttr("disabled");
+                        $("#nuevoRequisicion").removeAttr("disabled");
+
+                    }
+                    ;
+
+                });
+            }
+        });
+    });
 
     let count = 0;
-
     $("#agregar").click(() => {
         addRow();
         for (let i = 1; i <= count; i++) {
@@ -130,9 +170,9 @@ $(document).ready(() => {
 
     function desBotonesRequisicionDetalle() {
         $("#editarRequisicionDetalle").attr("disabled", "false");
-        $("#salvarRequisicionDetalle").attr("disabled", "false");
+        // $("#salvarRequisicionDetalle").attr("disabled", "false");
         $("#cancelarRequisicionDetalle").attr("disabled", "false");
-        $("#agregar").attr("disabled", "false");
+        //$("#agregar").attr("disabled", "false");
     }
 
     function cargarRequisicion() {
@@ -145,7 +185,8 @@ $(document).ready(() => {
             tipo: $("#idTipo").val() === 1 ? "O" : "U",
             observacion: $("#observacion").val(),
             numInterno: $("#numInterno").val(),
-            user: json.user
+            user: json.user,
+            tipoSave : 1
         };
     }
 
@@ -181,6 +222,33 @@ $(document).ready(() => {
                 alert("no se encontro resultado");
             }
         });
+    }
+
+    function obtenerJson() {
+        let arrayData = [];
+        let codigo, cantidad, aprobada, estado;
+
+        $(".table tbody tr").each(function () {
+            $("td input").each(function (index) {
+                switch (index) {
+                    case 0:
+                        codigo = $(this).val();
+                        break;
+                    case 2:
+                        cantidad = $(this).val();
+                        break;
+                    case 4:
+                        aprobada = $(this).val();
+                        break;
+                    case 5:
+                        estado = $(this).val();
+                        break;
+                }
+            });
+            arrayData.push({codigo, cantidad, aprobada, estado})
+        });
+
+        return JSON.parse(arrayData);
     }
 
 });

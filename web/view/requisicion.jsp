@@ -123,6 +123,7 @@
                     <th class="text-center">Aprobadas</th>
                     <th class="text-center">Estado</th>
                     </thead>
+                    <tbody></tbody>
                 </table>
             </div>
             <div class="card-footer">
