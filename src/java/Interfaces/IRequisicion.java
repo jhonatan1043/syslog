@@ -19,7 +19,7 @@ public interface IRequisicion {
 
     public boolean saveRequisicionDetalle(Requisicion requisicion);
 
-    public Map<String, Object>  updateRequisicion(Requisicion requisicion);
+    public Map<String, Object> updateRequisicion(Requisicion requisicion);
 
     public boolean updateRequisicionDetalle(Requisicion requisicion);
 
@@ -30,5 +30,7 @@ public interface IRequisicion {
     public Requisicion getRequisicion(String cc_requisicion);
 
     public boolean deleteRequisicion(String cc_requisicion);
+
+    public Map<String, Object> getMaterial(String codigo);
 
 }

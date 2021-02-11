@@ -40,7 +40,7 @@ $(document).ready(() => {
                                     title: data.message,
                                     showConfirmButton: false,
                                     timer: 1500
-                                })
+                                });
 
                                 deshabilitarControles();
                                 desBotonesRequisicion();
@@ -58,25 +58,25 @@ $(document).ready(() => {
                 });
     });
 
+
+
+    let count = 0;
+
     $("#agregar").click(() => {
+        addRow();
+        for (let i = 1; i <= count; i++) {
+            $("#btnQuitar-" + i).on("click", () => {
+                quitarRow(i);
+            });
 
-
-        const row = "<tr id='row-" +  + "'><td class='text-center'>\n\
-                         <button type='button' class='btn-sm btn-danger' id='quitar' onclick='deleteRow(" + count + ");'>\n\
-                                     <i class='fas fa-trash-alt'></i></button></td>\n\
-                         <td><input type='text' class='form-control form-control-sm' id='consultarItem' /></td>\n\
-                         <td><input type='text' class='form-control form-control-sm' disabled/></td>\n\
-                         <td><input type='number' class='form-control form-control-sm' /></td>\n\
-                         <td><input type='text' class='form-control form-control-sm' disabled/></td>\n\
-                         <td><input type='number' class='form-control form-control-sm' /></td>\n\
-                         <td><input type='checkbox' class='form-control' /></td></tr>";
-        
-
-
-        $("#row").append(row);
-
-
+            $("#consultarItem-" + i).on("keydown", (e) => {
+                if (e.which === 13) {
+                    getMaterial(i);
+                }
+            });
+        }
     });
+
 
 //--------------------------------------------------------------eventos de los botones requisiciones detalle -------------
     $("#cancelarRequisicionDetalle").click(() => {
@@ -147,6 +147,40 @@ $(document).ready(() => {
             numInterno: $("#numInterno").val(),
             user: json.user
         };
+    }
+
+    function addRow() {
+        count++;
+        const row = "<tr id='row-" + count + "'><td class='text-center'>\n\
+                         <button type='button' class='btn-sm btn-danger' id='btnQuitar-" + count + "' name=" + count + ">\n\
+                                     <i class='fas fa-trash-alt'></i></button></td>\n\
+                         <td><input type='text' class='form-control form-control-sm' id='consultarItem-" + count + "' /></td>\n\
+                         <td><input type='text' class='form-control form-control-sm' disabled id='material-" + count + "'/></td>\n\
+                         <td><input type='number' class='form-control form-control-sm' value='0.00'/></td>\n\
+                         <td><input type='text' class='form-control form-control-sm' disabled id='unidad-" + count + "'/></td>\n\
+                         <td><input type='number' class='form-control form-control-sm' value='0.00' /></td>\n\
+                         <td><input type='checkbox' class='form-control' /></td></tr>";
+
+        $("#table").append(row);
+
+    }
+
+    function quitarRow(idRow) {
+        $("#row-" + idRow).remove();
+    }
+
+    function getMaterial(idRow) {
+        $.get("Requisicion",
+                {tipo: 1,
+                    codigo: $("#consultarItem-" + idRow).val()},
+                (data) => {
+            if (data.isValid) {
+                $("#material-" + idRow).val(data.data.descripcion);
+                $("#unidad-" + idRow).val(data.data.unidad);
+            } else {
+                alert("no se encontro resultado");
+            }
+        });
     }
 
 });

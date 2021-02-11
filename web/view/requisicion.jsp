@@ -113,7 +113,7 @@
             </div>
             <hr>
             <div class="table table-responsive">
-                <table class="table table-bordered table-sm">
+                <table class="table table-bordered table-sm" id="table">
                     <thead>
                     <th class="text-center">Quitar</th>
                     <th class="text-center">Codigo</th>
@@ -123,8 +123,6 @@
                     <th class="text-center">Aprobadas</th>
                     <th class="text-center">Estado</th>
                     </thead>
-                    <tbody id="row">
-                    </tbody>
                 </table>
             </div>
             <div class="card-footer">

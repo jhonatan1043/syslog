@@ -22,9 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RequisicionController extends HttpServlet {
 
-
     @Override
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Requisicion requisicion = new Requisicion();
@@ -39,10 +38,28 @@ public class RequisicionController extends HttpServlet {
         requisicion.setObs_requisicion(request.getParameter("observacion"));
         requisicion.setInterno_requisicion(request.getParameter("numInterno"));
         requisicion.setUser_rq(request.getParameter("user"));
-        
+
         System.out.println(requisicion.toString());
-        
+
         map = daoRequisicion.saveRequisicion(requisicion);
+
+        white(response, map);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        DaoRequisicion daoRequisicion = new DaoRequisicion();
+        Map<String, Object> map = null;
+        int tipo;
+        String codigo;
+
+        tipo = Integer.parseInt(request.getParameter("tipo"));
+
+        if (tipo == 1) {
+            codigo = request.getParameter("codigo");
+            map = daoRequisicion.getMaterial(codigo);
+        }
 
         white(response, map);
     }
