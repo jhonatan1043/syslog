@@ -31,6 +31,4 @@ public interface IRequisicion {
 
     public boolean deleteRequisicion(String cc_requisicion);
 
-    public Map<String, Object> getMaterial(String codigo);
-
 }

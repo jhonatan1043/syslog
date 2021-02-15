@@ -41,4 +41,7 @@ public class Querys {
    public static String QUERY_GET_MATERIAL_CODIGO = "SELECT cod_material AS Código, nom_material AS Descripción, und_material \n" +
                                                     " FROM   material \n" +
                                                     " WHERE cod_material = ?";
+   
+      public static String QUERY_LIST_MATERIAL = "SELECT cod_material AS Código, nom_material AS Descripción, und_material \n" +
+                                                        " FROM material ORDER BY DESC";
 }

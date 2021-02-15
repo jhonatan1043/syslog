@@ -5,12 +5,18 @@
  */
 package Interfaces;
 
+import Models.Material;
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  *
  * @author Programador 1
  */
 public interface IMaterial {
-    
-    
-    
+
+    public Map<String, Object> getMaterial(String codigo);
+
+    public ArrayList<Material> listMaterial();
+
 }

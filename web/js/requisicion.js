@@ -170,9 +170,9 @@ $(document).ready(() => {
 
     function desBotonesRequisicionDetalle() {
         $("#editarRequisicionDetalle").attr("disabled", "false");
-        // $("#salvarRequisicionDetalle").attr("disabled", "false");
+         $("#salvarRequisicionDetalle").attr("disabled", "false");
         $("#cancelarRequisicionDetalle").attr("disabled", "false");
-        //$("#agregar").attr("disabled", "false");
+        $("#agregar").attr("disabled", "false");
     }
 
     function cargarRequisicion() {

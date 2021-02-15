@@ -8,7 +8,6 @@ package Dao;
 import General.Conexion;
 import General.Querys;
 import Interfaces.IRequisicion;
-import Models.Material;
 import Models.Requisicion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -135,39 +134,4 @@ public class DaoRequisicion implements IRequisicion {
     public boolean deleteRequisicion(String cc_requisicion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public Map<String, Object> getMaterial(String codigo) {
-        boolean result = false;
-        Map<String, Object> mapRes = new HashMap<>();
-        Material material = new Material();
-        String message;
-
-        try {
-
-            try (PreparedStatement psmt = cnx.getConexion().prepareStatement(Querys.QUERY_GET_MATERIAL_CODIGO)) {
-                psmt.setString(1, codigo);
-                
-                try (ResultSet resultSet = psmt.executeQuery()) {
-                    while (resultSet.next()) {
-                        material.setCodigo(resultSet.getString(1));
-                        material.setDescripcion(resultSet.getString(2));
-                        material.setUnidad(resultSet.getString(3));
-                    }
-                    cnx.getConexion().close();
-                }
-            }
-            result = true;
-            message = "listo";
-        } catch (SQLException ex) {
-            Logger.getLogger(DaoRequisicion.class.getName()).log(Level.SEVERE, null, ex);
-            message = ex.getMessage();
-        }
-
-        mapRes.put("isValid", result);
-        mapRes.put("message", message);
-        mapRes.put("data", material);
-        return mapRes;
-    }
-
 }

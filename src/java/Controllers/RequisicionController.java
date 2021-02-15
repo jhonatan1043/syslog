@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Dao.DaoMaterial;
 import Dao.DaoRequisicion;
 import Models.Requisicion;
 import com.google.gson.Gson;
@@ -49,7 +50,7 @@ public class RequisicionController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DaoRequisicion daoRequisicion = new DaoRequisicion();
+        DaoMaterial daoMaterial = new DaoMaterial();
         Map<String, Object> map = null;
         int tipo;
         String codigo;
@@ -58,7 +59,7 @@ public class RequisicionController extends HttpServlet {
 
         if (tipo == 1) {
             codigo = request.getParameter("codigo");
-            map = daoRequisicion.getMaterial(codigo);
+            map = daoMaterial.getMaterial(codigo);
         }
 
         white(response, map);

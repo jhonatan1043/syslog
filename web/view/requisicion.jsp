@@ -1,7 +1,9 @@
 <%@page import="Models.ClasificacionRequisicion"%>
-<%@page import="Dao.DaoClasificacionRequisicion"%>
+<%@page import="Models.Material"%>
 <%@page import="Models.CentroCosto"%>
+<%@page import="Dao.DaoClasificacionRequisicion"%>
 <%@page import="Dao.DaoCentroCosto"%>
+<%@page import="Dao.DaoMaterial"%>
 <%@page import="java.util.ArrayList;"%>
 
 <div class="card m-5">
@@ -92,15 +94,6 @@
                     </button>
                     <button type="button" class="btn btn-success" id="salvarRequisicion">
                         <i class="fas fa-save"></i>
-                    </button>
-                </div>
-                <div class="form-inline">
-                    <button type="button" class="btn btn-secondary" id="prevData">
-                        <i class="fas fa-backward"></i>
-                    </button>
-                    <input type="text" class="form-control form-control-sm ml-2 mr-2" id="num" disabled=""/>
-                    <button type="button" class="btn btn-secondary" id="nextData">
-                        <i class="fas fa-forward"></i>
                     </button>
                 </div>
             </div>
