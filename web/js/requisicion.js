@@ -8,6 +8,7 @@ $(document).ready(() => {
     $("#nuevoRequisicion").click(() => {
         habilitarControles();
         desBotonesRequisicion();
+        limpiarControles();
         $("#cancelarRequisicion").removeAttr("disabled");
         $("#salvarRequisicion").removeAttr("disabled");
     });
@@ -15,6 +16,7 @@ $(document).ready(() => {
     $("#cancelarRequisicion").click(() => {
         deshabilitarControles();
         desBotonesRequisicion();
+        limpiarControles();
         $("#nuevoRequisicion").removeAttr("disabled");
     });
 
@@ -73,10 +75,10 @@ $(document).ready(() => {
                         {idEmpresa: json.idEmpresa,
                             centroCostro: $("#centroC").val(),
                             numRequisicion: $("#numRequicion").val(),
-                            tipoSave : 2,
+                            tipoSave: 2,
                             jsonData: obtenerJson()},
                         (data) => {
-                            
+
                     if (data.isValid) {
 
                         Swal.fire({
@@ -139,9 +141,7 @@ $(document).ready(() => {
     }
 
     function deshabilitarControles() {
-        $("#centroC").attr("disabled", "false");
-        $("#idclasificacion").attr("disabled", "false");
-        $("#numRequicion").attr("disabled", "false");
+        $("#numRequicion").removeAttr("disabled");
         $("#fechaRequicion").attr("disabled", "false");
         $("#idTipo").attr("disabled", "false");
         $("#observacion").attr("disabled", "false");
@@ -149,8 +149,7 @@ $(document).ready(() => {
     }
 
     function habilitarControles() {
-        $("#centroC").removeAttr("disabled");
-        $("#idclasificacion").removeAttr("disabled");
+        $("#numRequicion").attr("disabled", "false");
         $("#fechaRequicion").removeAttr("disabled");
         $("#idTipo").removeAttr("disabled");
         $("#observacion").removeAttr("disabled");
@@ -170,9 +169,22 @@ $(document).ready(() => {
 
     function desBotonesRequisicionDetalle() {
         $("#editarRequisicionDetalle").attr("disabled", "false");
-         $("#salvarRequisicionDetalle").attr("disabled", "false");
+        $("#salvarRequisicionDetalle").attr("disabled", "false");
         $("#cancelarRequisicionDetalle").attr("disabled", "false");
         $("#agregar").attr("disabled", "false");
+    }
+
+    function limpiarControles() {
+        $("#centroC").val(0);
+        $("#idclasificacion").val(0);
+        $("#numRequicion").val("");
+        $("#fechaRequicion").val("");
+        $("#idTipo").val("");
+        $("#observacion").val("");
+        $("#numInterno").val("");
+        $(".table tbody tr").each(function () {
+            $(this).remove();
+        });
     }
 
     function cargarRequisicion() {
@@ -186,7 +198,7 @@ $(document).ready(() => {
             observacion: $("#observacion").val(),
             numInterno: $("#numInterno").val(),
             user: json.user,
-            tipoSave : 1
+            tipoSave: 1
         };
     }
 

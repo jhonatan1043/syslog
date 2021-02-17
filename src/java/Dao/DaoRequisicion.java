@@ -45,7 +45,7 @@ public class DaoRequisicion implements IRequisicion {
                 try (ResultSet resultSet = psmt.executeQuery()) {
                     while (resultSet.next()) {
                         requisicion.setNum_requisicion(resultSet.getString(1));
-                        requisicion.setEstado_requisicion("P");
+                        requisicion.setEstado_requisicion("N");
                     }
 
                     cnx.getConexion().close();

@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-xl-3 col-xs-12">
                     <label for="numRequicion">Num. Requisición</label>
-                    <input id="numRequicion" name="numRequicion" type="text" class="form-control form-control-sm" disabled>
+                    <input id="numRequicion" name="numRequicion" type="text" class="form-control form-control-sm">
                 </div>
                 <div class="col-xl-3 col-xs-12">
                     <label for="estado">Estado</label>
