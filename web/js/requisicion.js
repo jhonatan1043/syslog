@@ -75,8 +75,8 @@ $(document).ready(() => {
                         {idEmpresa: json.idEmpresa,
                             centroCostro: $("#centroC").val(),
                             numRequisicion: $("#numRequicion").val(),
-                            tipoSave: 2,
-                            jsonData: obtenerJson()},
+                            caso: 2,
+                            Data: obtenerArray()},
                         (data) => {
 
                     if (data.isValid) {
@@ -198,7 +198,7 @@ $(document).ready(() => {
             observacion: $("#observacion").val(),
             numInterno: $("#numInterno").val(),
             user: json.user,
-            tipoSave: 1
+            caso: 1   
         };
     }
 
@@ -236,7 +236,7 @@ $(document).ready(() => {
         });
     }
 
-    function obtenerJson() {
+    function obtenerArray() {
         let arrayData = [];
         let codigo, cantidad, aprobada, estado;
 
@@ -260,7 +260,7 @@ $(document).ready(() => {
             arrayData.push({codigo, cantidad, aprobada, estado})
         });
 
-        return JSON.parse(arrayData);
+        return arrayData;
     }
 
 });

@@ -30,21 +30,26 @@ public class RequisicionController extends HttpServlet {
         Requisicion requisicion = new Requisicion();
         DaoRequisicion daoRequisicion = new DaoRequisicion();
         Map<String, Object> map;
+        int caso = Integer.parseInt(request.getParameter("caso"));
 
-        requisicion.setEmp_requisicion(Integer.parseInt(request.getParameter("idEmpresa")));
         requisicion.setCc_requisicion(request.getParameter("centroCosto"));
-        requisicion.setClase_requisicion(request.getParameter("clasificacion"));
-        requisicion.setFecha_requisicion(Date.valueOf(request.getParameter("fechaRequicion")));
-        requisicion.setTipo_requisicion(request.getParameter("tipo"));
-        requisicion.setObs_requisicion(request.getParameter("observacion"));
-        requisicion.setInterno_requisicion(request.getParameter("numInterno"));
-        requisicion.setUser_rq(request.getParameter("user"));
+        switch (caso) {
 
-        System.out.println(requisicion.toString());
+            case 1:
+                requisicion.setEmp_requisicion(Integer.parseInt(request.getParameter("idEmpresa")));
+                requisicion.setClase_requisicion(request.getParameter("clasificacion"));
+                requisicion.setFecha_requisicion(Date.valueOf(request.getParameter("fechaRequicion")));
+                requisicion.setTipo_requisicion(request.getParameter("tipo"));
+                requisicion.setObs_requisicion(request.getParameter("observacion"));
+                requisicion.setInterno_requisicion(request.getParameter("numInterno"));
+                requisicion.setUser_rq(request.getParameter("user"));
+                map = daoRequisicion.saveRequisicion(requisicion);
+                white(response, map);
+                break;
+            case 2:
+                requisicion.setCc_requisicion(request.getParameter("numRequicion"));        
+        }
 
-        map = daoRequisicion.saveRequisicion(requisicion);
-
-        white(response, map);
     }
 
     @Override

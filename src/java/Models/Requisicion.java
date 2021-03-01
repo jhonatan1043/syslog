@@ -5,6 +5,7 @@
  */
 package Models;
 
+import java.sql.Array;
 import java.sql.Date;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,13 +27,13 @@ public class Requisicion {
     private String clase_requisicion;
     private String user_rq;
     private String interno_requisicion;
-    private DefaultTableModel modelo;
+    private Array modelo;
 
-    public DefaultTableModel getModelo() {
+    public Array getModelo() {
         return modelo;
     }
 
-    public void setModelo(DefaultTableModel modelo) {
+    public void setModelo(Array modelo) {
         this.modelo = modelo;
     }
 
@@ -131,8 +132,8 @@ public class Requisicion {
     public void setInterno_requisicion(String interno_requisicion) {
         this.interno_requisicion = interno_requisicion;
     }
-    
-       @Override
+
+    @Override
     public String toString() {
         return "Requisicion{" + "emp_requisicion=" + emp_requisicion + ", cc_requisicion=" + cc_requisicion + ", num_requisicion=" + num_requisicion + ", fecha_requisicion=" + fecha_requisicion + ", tipo_requisicion=" + tipo_requisicion + ", estado_requisicion=" + estado_requisicion + ", obs_requisicion=" + obs_requisicion + ", fecha_ap=" + fecha_ap + ", user_ap=" + user_ap + ", clase_requisicion=" + clase_requisicion + ", user_rq=" + user_rq + ", interno_requisicion=" + interno_requisicion + ", modelo=" + modelo + '}';
     }
